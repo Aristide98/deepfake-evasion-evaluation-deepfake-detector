@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "DeepfakeShield",
+  "version": "1.0.0",
+  "description": "Offline deepfake detection using finetuned MesoNet. Right-click any image to analyse.",
+  "permissions": [
+    "contextMenus",
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": ["<all_urls>"],
+"content_security_policy": {
+  "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+},
+
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "lib/*",
+        "mesonet.onnx",
+        "analysis.html",
+        "analysis.js",
+        "analysis.css"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

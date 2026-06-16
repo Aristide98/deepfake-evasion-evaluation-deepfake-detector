@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>DeepfakeShield</title>
+  <link rel="stylesheet" href="analysis.css">
+</head>
+<body>
+  <div class="header">
+    <span class="logo">🛡 DeepfakeShield</span>
+    <span class="sub">MesoNet · FF++ c40 · Offline</span>
+  </div>
+
+  <div class="preview-box">
+    <canvas id="faceCanvas" width="160" height="160"></canvas>
+    <div id="faceCount" class="face-count hidden"></div>
+  </div>
+
+  <div id="loadingSection" class="loading-section">
+    <div class="spinner"></div>
+    <div id="loadingText">Initialising...</div>
+  </div>
+
+  <div id="errorSection" class="error-section hidden">
+    <div class="error-icon">⚠</div>
+    <div id="errorText" class="error-text">—</div>
+    <div class="error-hint">Open DevTools (F12) → Console for details</div>
+  </div>
+
+  <div id="resultSection" class="result-section hidden">
+
+    <div id="riskBanner" class="risk-banner">
+      <div>
+        <div id="riskLabel" class="risk-label">—</div>
+        <div id="riskSub"   class="risk-sub">Combined risk assessment</div>
+      </div>
+      <div id="riskScore" class="risk-score">—</div>
+    </div>
+
+    <div class="section-title">Risk Indicators</div>
+    <div id="indicators" class="indicators"></div>
+
+    <div class="context-box">
+      <div class="context-title">⚠ Security Context</div>
+      <div id="contextText" class="context-text">—</div>
+    </div>
+
+  </div>
+
+  <script src="lib/ort.min.js"></script>
+  <script src="analysis.js"></script>
+</body>
+</html>
